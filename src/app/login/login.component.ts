@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { max } from 'rxjs';
 
 @Component({
@@ -38,7 +39,7 @@ userDetails:any = {
 }
 
 // constructor -
-  constructor() { }
+  constructor(private router:Router) { }
 
   // ngoninint - life cycle hook of angular
   ngOnInit(): void {
@@ -69,6 +70,7 @@ login(){
   if(acno in userDetails){
     if(pswd == userDetails[acno]["password"]){
       alert("login Succesful")
+      this.router.navigateByUrl('dashboard')
     }else
     {
       alert("incorrect password")

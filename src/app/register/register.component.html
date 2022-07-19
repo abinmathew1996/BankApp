@@ -2,7 +2,6 @@
 <nav class="navbar navbar-light bg-dark " >
     <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
     <span class="quote text-light">Giving you freedom...</span>
-    <h6 style="color: aliceblue;">{{aim}}</h6>
   </nav>
   
   
@@ -21,9 +20,18 @@
                           </div>
                           <!-- <input type="text" (change) = "acnoChange($event)" class="form-control" [placeholder]="account" id="login_accno" required> -->
                           <!-- <input type="text" #acno class="form-control" [placeholder]="account" id="login_accno" required> -->
-                          <input type="text" [(ngModel)]="acno" name="acno" class="form-control" [placeholder]="account" id="login_accno" required>
+                          <input type="text" [(ngModel)]="uname" name="acno" class="form-control" placeholder="enter your username" id="login_accno" required>
 
                       </div>
+                      <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <!-- <input type="text" (change) = "acnoChange($event)" class="form-control" [placeholder]="account" id="login_accno" required> -->
+                        <!-- <input type="text" #acno class="form-control" [placeholder]="account" id="login_accno" required> -->
+                        <input type="text" [(ngModel)]="acno" name="acno" class="form-control" placeholder="enter your acc no" id="login_accno" required>
+
+                    </div>
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -35,11 +43,11 @@
                       </div>
                       
                       <div class="form-group">
-                          <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" >
+                          <input type="submit" (click)="register()" value="Register now" class="btn float-right login_btn " style="width:50%" >
                       </div>
                   </form>
               </div>
-              <p style="color:white;align-items:baseline;">Not a user? <a routerLink="register">Register</a></p>
+              <p style="color:white;align-items:baseline;">already have an account? <a routerLink="">login</a></p>
           </div>
       </div>
   </div>

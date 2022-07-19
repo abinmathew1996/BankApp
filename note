@@ -7,6 +7,7 @@
                        1. to create a project -ng new project name / ng new project-name --routing
                        2. to run Angular projects - ng serve/ng serve --open
                        3. to generate components -ng g c component-name
+                       4. to generate service - ng g s service-name
 
 
                             BAsic building blocks
@@ -25,4 +26,7 @@
                                       3.1.2.3 event binding using template referancing variable -#varible-name
                                3.2 Two way binding - data shairing in both direction - 
                                3.2.1 ngModel - import FormsModule in AppModule -[(ngModule)] = "property-name" , property name should defined in its file
-                       4. Angular routing - to set path for component in approutingModule - {path:value, component:}
+                       4. Angular routing - to set path for component in approutingModule - {path:value, component:class_name}
+                       -use router-outlet selector inside the root component
+
+                       5.Dependency Injection-share data between dependent classes
