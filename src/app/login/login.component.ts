@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { max } from 'rxjs';
+import { DataService } from '../services/data.service';
+
 
 @Component({
   selector: 'app-login',
@@ -15,31 +17,8 @@ account ="please input your acc no"
 acno =""
 pswd =""
 
-
-// database
-userDetails:any = {
-  1000:{
-    Uname:"max",
-    acno:1000,
-    password:1001,
-    balance:15000
-  },
-  1001:{
-    Uname:"maxwell",
-    acno:1001,
-    password:1002,
-    balance:20000
-  },
-  1003:{
-    Uname:"noir",
-    acno:1003,
-    password:1004,
-    balance:25000
-  }
-}
-
 // constructor -
-  constructor(private router:Router) { }
+constructor(private ds:DataService, private router : Router) { }
 
   // ngoninint - life cycle hook of angular
   ngOnInit(): void {
@@ -62,23 +41,15 @@ userDetails:any = {
 login(){
   var acno = this.acno
   var pswd = this.pswd
-  console.log(acno);
-  console.log(pswd);
   
   
-  let userDetails = this.userDetails
-  if(acno in userDetails){
-    if(pswd == userDetails[acno]["password"]){
+  const result = this.ds.login(acno,pswd)
+  if(result){
+    
       alert("login Succesful")
       this.router.navigateByUrl('dashboard')
-    }else
-    {
-      alert("incorrect password")
     }
-}
-else{
-  alert("user doesnot exist")
-}
+
 }
 
 //login()
