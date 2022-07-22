@@ -1,114 +1,100 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark" >
-    <a class="navbar-brand" style="color:rgb(85, 98, 237);" href="#">HAFC Bank </a>
-    
-    <div class="collapse navbar-collapse bg-dark" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto bg-dark">
-        <li class="nav-item active m-2 bg-dark">
-          <a class="nav-link text-light " href="#">Home </a>
-        </li>
-        <li class="nav-item m-2 bg-dark">
-          <a class="nav-link text-light" href="#">About</a>
-        </li>
-        <li class="nav-item dropdown m-2 text-light bg-dark">
-          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Services
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" onclick="bank.balanceEnquiry()">Balance</a>
-            <a class="dropdown-item " data-toggle="modal" data-target="#depositModal">Deposit</a>
-            <a class="dropdown-item" data-toggle="modal" data-target="#transferModal" >Fund Transfer</a>
+<!-- As a link -->
+<nav class="navbar navbar-light bg-dark " >
+  <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
+  <span class="quote text-light">Giving you freedom...</span>
+</nav>
+
+
+<div class="container col-md-12 mt-0">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">deposit form</h3>
+                
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="deposit()">
+                    
+                    <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <!-- <input type="text" (change) = "acnoChange($event)" class="form-control" [placeholder]="account" id="login_accno" required> -->
+                      <!-- <input type="text" #acno class="form-control" [placeholder]="account" id="login_accno" required> -->
+                      <input type="text" [(ngModel)]="acno" name="acno" class="form-control" placeholder="enter your acc no" id="login_accno" required>
+
+                  </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <!-- <input type="password" (change) = "pswdChange($event)" class="form-control" placeholder="password" id="login_password" required> -->
+                        <!-- <input type="password" #pswd class="form-control" placeholder="password" id="login_password" required> -->
+                        <input type="password" [(ngModel)]="pswd" name="pswd" class="form-control" placeholder="password" id="login_password" required>
+
+                    </div>
+                    <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <!-- <input type="text" (change) = "acnoChange($event)" class="form-control" [placeholder]="account" id="login_accno" required> -->
+                      <!-- <input type="text" #acno class="form-control" [placeholder]="account" id="login_accno" required> -->
+                      <input type="text" [(ngModel)]="amount" name="amount" class="form-control" placeholder="Enter the amount" id="login_uname" required>
+
+                  </div>
+                    
+                    <div class="form-group">
+                        <input type="submit" value="deposit" class="btn float-right login_btn " style="width:50%" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container col-md-12 mt-0 ">
+  <div class="d-flex justify-content-center h-100">
+      <div class="card">
+          <div class="card-header">
+              <h3 class="text-center">withdraw form</h3>
+              
           </div>
-        </li>
+          <div class="card-body">
+              <form (ngSubmit)="withdraw()">
+                  
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <!-- <input type="text" (change) = "acnoChange($event)" class="form-control" [placeholder]="account" id="login_accno" required> -->
+                    <!-- <input type="text" #acno class="form-control" [placeholder]="account" id="login_accno" required> -->
+                    <input type="text" [(ngModel)]="acno1" name="acno" class="form-control" placeholder="enter your acc no" id="login_accno" required>
 
-        <li class="nav-item active m-2 bg-dark">
-          <a class="nav-link text-danger " onclick="bank.logout()"><i class="fa fa-power-off fa-lg bg-dark"></i></a>
-        </li>
-        
-      </ul>
+                </div>
+                  <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      <!-- <input type="password" (change) = "pswdChange($event)" class="form-control" placeholder="password" id="login_password" required> -->
+                      <!-- <input type="password" #pswd class="form-control" placeholder="password" id="login_password" required> -->
+                      <input type="password" [(ngModel)]="pswd1" name="pswd" class="form-control" placeholder="password" id="login_password" required>
 
-    </div>
-  </nav>
+                  </div>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <!-- <input type="text" (change) = "acnoChange($event)" class="form-control" [placeholder]="account" id="login_accno" required> -->
+                    <!-- <input type="text" #acno class="form-control" [placeholder]="account" id="login_accno" required> -->
+                    <input type="text" [(ngModel)]="amount1" name="amount" class="form-control" placeholder="Enter the amount" id="login_uname" required>
 
-  <!--deposit modal -->
-
-  <div class="modal " id="depositModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content text-light">
-        <div class="modal-header">
-          <h5 class="modal-title text-dark text-center">Self Deposit</h5>
-          <button type="button text-light" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form onsubmit="event.preventDefault();bank.deposit()">
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">amount</span>
-              </div>
-              <input type="text" class="form-control" placeholder="amount" id="deposit_amount" required>
-              
-            </div>
-
-            <div class="form-group">
-              <input type="submit" value="deposit" class="btn float-right login_btn bg-info" style="width:50% ; border: 1px solid black;"  >
-            </div>
-          </form>
-
-        </div>
-        
+                </div>
+                  
+                  <div class="form-group">
+                      <input type="submit" value="withdraw" class="btn float-right login_btn " style="width:50%" >
+                  </div>
+              </form>
+          </div>
       </div>
-    </div>
   </div>
-
-  <!--transfer modal -->
-
-  <div class="modal " id="transferModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content text-light">
-        <div class="modal-header">
-          <h5 class="modal-title text-dark text-center">Cash Transfer</h5>
-          <button type="button text-light" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form onsubmit="event.preventDefault();bank.fundTransfer()">
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">beneficiary acc no</span>
-              </div>
-              <input type="text" class="form-control" placeholder="account number" id="benf_acc" required>
-              
-            </div>
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">confirm beneficiary acc no</span>
-              </div>
-              <input type="text" class="form-control" placeholder="account number" id="cnfm_benf" required>
-              
-            </div>
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">amount</span>
-              </div>
-              <input type="text" class="form-control" placeholder="amount" id="tranfer_amount" required>
-              
-            </div>
-
-            <div class="form-group">
-              <input type="submit" value="Transfer" class="btn float-right login_btn bg-info" style="width:50% ; border: 1px solid black;">
-            </div>
-          </form>
-
-          
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  
-  <div id="result" class="text-dark text-center mt-auto"> 
-  <p>Hello user...Have a great day!!!</p>
-  </div>
-
+</div>

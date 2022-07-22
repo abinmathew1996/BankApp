@@ -30,3 +30,5 @@
                        -use router-outlet selector inside the root component
 
                        5.Dependency Injection-share data between dependent classes
+
+                       6. angular service -to hpld

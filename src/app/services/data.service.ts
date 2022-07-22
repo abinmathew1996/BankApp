@@ -68,5 +68,52 @@ if (acno in userDetails){
   }
 
 
+  //deposit
+  deposit(acno:any,pswd:any,amt:any){
+let userDetails = this.userDetails
+var amount = parseInt(amt)
+
+if (acno in userDetails){
+  if(pswd==userDetails[acno]['password']){
+    userDetails[acno]['balance']+=amount
+    return userDetails[acno]['balance']
+  }
+  else{
+    alert('In correct password')
+    return false
+  }
+}
+else{
+  alert('user does not exist')
+  return false
+}
+  }
+
+    //withdraw
+    withdraw(acno1:any,pswd1:any,amt1:any){
+      let userDetails = this.userDetails
+      var amount = parseInt(amt1)
+      
+      if (acno1 in userDetails){
+        if(pswd1==userDetails[acno1]['password']){
+if(userDetails[acno1]['balance']>=amount){
+          userDetails[acno1]['balance']-=amount
+          return userDetails[acno1]['balance']
+}else{
+  alert('Insufficient balance')
+}
+        }
+        else{
+          alert('In correct password')
+          return false
+        }
+      }
+      else{
+        alert('user does not exist')
+        return false
+      }
+        }
+
+
 
 }
