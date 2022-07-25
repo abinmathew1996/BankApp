@@ -4,6 +4,9 @@
   <span class="quote text-light">Giving you freedom...</span>
 </nav>
 
+<h1>welcome {{user}}</h1>
+<!-- <a href="transaction">view transaction list</a> -->
+<a routerLink="/transaction">view transaction list</a>
 
 <div class="container col-md-12 mt-0">
     <div class="d-flex justify-content-center h-100">
@@ -68,7 +71,7 @@
                     </div>
                     <!-- <input type="text" (change) = "acnoChange($event)" class="form-control" [placeholder]="account" id="login_accno" required> -->
                     <!-- <input type="text" #acno class="form-control" [placeholder]="account" id="login_accno" required> -->
-                    <input type="text" [(ngModel)]="acno1" name="acno" class="form-control" placeholder="enter your acc no" id="login_accno" required>
+                    <input type="text" [(ngModel)]="acno1" name="acno" class="form-control" placeholder="enter your acc no" id="login_accno1" required>
 
                 </div>
                   <div class="input-group form-group">
@@ -77,7 +80,7 @@
                       </div>
                       <!-- <input type="password" (change) = "pswdChange($event)" class="form-control" placeholder="password" id="login_password" required> -->
                       <!-- <input type="password" #pswd class="form-control" placeholder="password" id="login_password" required> -->
-                      <input type="password" [(ngModel)]="pswd1" name="pswd" class="form-control" placeholder="password" id="login_password" required>
+                      <input type="password" [(ngModel)]="pswd1" name="pswd" class="form-control" placeholder="password" id="login_password1" required>
 
                   </div>
                   <div class="input-group form-group">
@@ -86,7 +89,7 @@
                     </div>
                     <!-- <input type="text" (change) = "acnoChange($event)" class="form-control" [placeholder]="account" id="login_accno" required> -->
                     <!-- <input type="text" #acno class="form-control" [placeholder]="account" id="login_accno" required> -->
-                    <input type="text" [(ngModel)]="amount1" name="amount" class="form-control" placeholder="Enter the amount" id="login_uname" required>
+                    <input type="text" [(ngModel)]="amount1" name="amount" class="form-control" placeholder="Enter the amount" id="login_uname1" required>
 
                 </div>
                   

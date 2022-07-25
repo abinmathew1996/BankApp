@@ -13,7 +13,10 @@ export class DashboardComponent implements OnInit {
   amount1 =""
   acno1 =""
   pswd1 =""
-  constructor(private ds:DataService) { }
+  user = ""
+  constructor(private ds:DataService) {
+    this.user = this.ds.currentUser
+   }
 
   ngOnInit(): void {
   }
