@@ -23,6 +23,7 @@
                           <input type="text" formControlName="uname" name="acno" class="form-control" placeholder="enter your username" id="login_uname" required>
 
                       </div>
+                      <div *ngIf="this.registerForm.get('uname')?.touched&&this.registerForm.get('uname')?.errors" style="color: whitesmoke; text-align: center;">Invalid Username</div>
                       <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>

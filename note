@@ -42,6 +42,7 @@
                           8.2 structural directive
 
                           8.2.1 *ngFor
+                          8.2.2 *ngIf
 
                           9. angular forms
                           
