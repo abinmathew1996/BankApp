@@ -85,6 +85,7 @@ export class DataService {
         userDetails[acno]['transaction'].push({
           type: 'credit',
           amount,
+          balance:userDetails[acno]['balance']
         });
         console.log(userDetails);
 
@@ -112,6 +113,8 @@ export class DataService {
           userDetails[acno1]['transaction'].push({
             type: 'debit',
             amount,
+            balance:userDetails[acno1]['balance']
+
           });
 
           console.log(userDetails);

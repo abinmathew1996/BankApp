@@ -11,6 +11,7 @@ export class TransactionComponent implements OnInit {
 acno:any
 // to hold transaction arry of current user
 transaction:any
+balance:any
   constructor(private ds:DataService) { 
     ///get value from current acno
     this.acno = this.ds.currentAcno
