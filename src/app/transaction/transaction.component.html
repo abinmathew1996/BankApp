@@ -12,13 +12,9 @@
       <th>Type</th>
       <th>amount</th>
     </tr>
-    <tr>
-      <th>Credit</th>
-      <td> 1000</td>
-    </tr>
-    <tr>
-      <th>Debit</th>
-      <td>1000 </td>
+    <tr *ngFor="let t of transaction ">
+      <th>{{t.type}}</th>
+      <td> {{t.amount}}</td>
     </tr>
   </table>
 <div class="link">

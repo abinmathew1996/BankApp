@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
 export class DataService {
   // log in
   currentUser: any;
+  // transaction acno
+
+  currentAcno:any
 
   // database
   userDetails: any = {
@@ -59,7 +62,7 @@ export class DataService {
     if (acno in userDetails) {
       if (pswd == userDetails[acno]['password']) {
         this.currentUser = userDetails[acno]['username'];
-
+        this.currentAcno = acno
         return true;
       } else {
         alert('incorrect password');

@@ -32,3 +32,26 @@
                        5.Dependency Injection-share data between dependent classes
 
                        6. angular service -to hpld
+
+                       7.ng submit
+
+                       8.angular Directives -  To manupulate Dom
+                          
+                          8.1 component directive
+
+                          8.2 structural directive
+
+                          8.2.1 *ngFor
+
+                          9. angular forms
+                          
+                          9.1. Template driven forms - first design html
+
+                          9.2 model driven forms- first designts file
+                           
+                           9.2.1 Reactive forms - Form group, arry, and control
+
+                                                      -add validations directly
+
+                                                      Import reactiveForms module
+
