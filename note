@@ -55,4 +55,8 @@
                                                       -add validations directly
 
                                                       Import reactiveForms module
+                        10. Local storage
 
+                        10.1 set item
+                        10.2 get item
+                        10.3 delete item

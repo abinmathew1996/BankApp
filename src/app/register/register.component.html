@@ -33,7 +33,7 @@
                         <input type="text" formControlName="acno" name="acno" class="form-control" placeholder="enter your acc no" id="login_accno" required>
 
                     </div>
-                    <div *ngIf="this.registerForm.get('acno')?.touched&&this.registerForm.get('acno')?.errors" style="color: whitesmoke; text-align: center;">Invalid Username</div>
+                    <div *ngIf="this.registerForm.get('acno')?.touched&&this.registerForm.get('acno')?.errors" style="color: whitesmoke; text-align: center;">Invalid Ac No</div>
 
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
@@ -44,6 +44,8 @@
                           <input type="password" formControlName="pswd" name="pswd" class="form-control" placeholder="password" id="login_password" required>
 
                       </div>
+                      <div *ngIf="this.registerForm.get('pswd')?.touched&&this.registerForm.get('pswd')?.errors" style="color: whitesmoke; text-align: center;">Invalid password</div>
+
                       
                       <div class="form-group">
                           <input type="submit" value="Register now" class="btn float-right login_btn " style="width:50%" >
