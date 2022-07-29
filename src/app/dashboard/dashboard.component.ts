@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -20,12 +21,20 @@ export class DashboardComponent implements OnInit {
     pswd1: ['',[Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
   });
   user = ""
-  constructor(private ds:DataService, private fb: FormBuilder
+  acno: any;
+  
+  constructor(private router:Router,private ds:DataService, private fb: FormBuilder
     ) {
     this.user = this.ds.currentUser
    }
 
   ngOnInit(): void {
+    if(!localStorage.getItem('currentAcno')){
+      console.log("hello");
+      
+      alert('please login')
+      this.router.navigateByUrl('')
+    }
   }
 
   deposit(){
@@ -47,6 +56,18 @@ if(result){
   alert(`${amount} is debited, new balance is ${result}`)
 }
 
+  }
+  logOut(){
+    // remove login acno andusername
+    localStorage.removeItem('currentAcno')
+    localStorage.removeItem('currentUser')
+//navigate bo login page
+    this.router.navigateByUrl('')
+
+  }
+
+  deleteFunction(){
+    this.acno = JSON.parse(localStorage.getItem('currentAcno')||"")
   }
 
 }

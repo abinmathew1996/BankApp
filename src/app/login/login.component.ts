@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
 aim ="your perfect banking partner"
 account ="please input your acc no"
+
 loginForm = this.fb.group({
   acno: ['',[Validators.required, Validators.pattern('[0-9]*')]],
   pswd: ['',[Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],

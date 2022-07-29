@@ -2,12 +2,19 @@
 <nav class="navbar navbar-light bg-dark " >
   <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
   <span class="quote text-light">Giving you freedom...</span>
-</nav>
+  <div class="form-group">
+</div>
+<button class="btn btn-warning" (click)="logOut()">Logout</button>    
 
+<button class="btn btn-danger" (click)="deleteFunction()">Delete</button>    
+
+</nav>
 <h1>welcome {{user}}</h1>
 <!-- <a href="transaction">view transaction list</a> -->
 <a routerLink="/transaction">view transaction list</a>
 
+<!-- child selector -->
+<app-delete-confirm [item]="acno"></app-delete-confirm>
 <div class="container col-md-12 mt-0">
     <div class="d-flex justify-content-center h-100">
         <div class="card">
