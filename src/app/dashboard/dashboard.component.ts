@@ -22,10 +22,12 @@ export class DashboardComponent implements OnInit {
   });
   user = ""
   acno: any;
+  sDetails: Date;
   
   constructor(private router:Router,private ds:DataService, private fb: FormBuilder
     ) {
     this.user = this.ds.currentUser
+    this.sDetails = new Date()
    }
 
   ngOnInit(): void {
@@ -68,6 +70,10 @@ if(result){
 
   deleteFunction(){
     this.acno = JSON.parse(localStorage.getItem('currentAcno')||"")
+  }
+
+  onCancel(){
+    this.acno = ""
   }
 
 }

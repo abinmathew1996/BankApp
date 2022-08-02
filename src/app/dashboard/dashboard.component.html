@@ -9,12 +9,14 @@
 <button class="btn btn-danger" (click)="deleteFunction()">Delete</button>    
 
 </nav>
-<h1>welcome {{user}}</h1>
+<h1 style="color: white ;">welcome {{user}}</h1>
+<h4 style="color: white ;">date and time : {{sDetails | date :'short'}}</h4>
 <!-- <a href="transaction">view transaction list</a> -->
 <a routerLink="/transaction">view transaction list</a>
 
 <!-- child selector -->
-<app-delete-confirm [item]="acno"></app-delete-confirm>
+<app-delete-confirm (onCancel) ="onCancel()" [item]="acno"></app-delete-confirm>
+
 <div class="container col-md-12 mt-0">
     <div class="d-flex justify-content-center h-100">
         <div class="card">
