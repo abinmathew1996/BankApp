@@ -1,4 +1,11 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+
+// global http header object
+const options = {
+  headers : new HttpHeaders()
+}
 
 @Injectable({
   providedIn: 'root',
@@ -35,8 +42,8 @@ export class DataService {
     },
   };
 
-  constructor() {
-    this.gatDetails()
+  constructor(private http:HttpClient) {
+    // this.gatDetails()
   }
 
 
@@ -54,90 +61,71 @@ export class DataService {
     }
   }
 
-  gatDetails(){
-    //database
-    if(localStorage.getItem('database')){
+  // gatDetails(){
+  //   //database
+  //   if(localStorage.getItem('database')){
       
-      this.userDetails =JSON.parse(localStorage.getItem('database')||"")
-    }
-    if(localStorage.getItem('currentUser')){
+  //     this.userDetails =JSON.parse(localStorage.getItem('database')||"")
+  //   }
+  //   if(localStorage.getItem('currentUser')){
       
-      this.currentUser =JSON.parse(localStorage.getItem('currentUser')||"")
-    }
-    if(localStorage.getItem('currentAcno')){
+  //     this.currentUser =JSON.parse(localStorage.getItem('currentUser')||"")
+  //   }
+  //   if(localStorage.getItem('currentAcno')){
       
-      this.currentAcno =JSON.parse(localStorage.getItem('currentAcno')||"")
-    }
-  }
+  //     this.currentAcno =JSON.parse(localStorage.getItem('currentAcno')||"")
+  //   }
+  // }
 
 
 
   //register
   register(acno: any, username: any, password: any) {
-    let userDetails = this.userDetails;
-    if (acno in userDetails) {
-      return false;
-    } else {
-      userDetails[acno] = {
-        username,
-        acno,
-        password,
-        balance: 0,
-        transaction: [],
-      }
-      this.saveDetails()
-      console.log(userDetails);
-
-      return true;
+const data = {
+  acno,
+  username,
+  password
+}
+// reister api - asynchronos
+return this.http.post('http://localhost:3000/register',data)
+}
+ //login
+  login(acno: any, pswd: any) {
+    const data = {
+      acno,
+      pswd
     }
+    // login api - asynchronos
+return this.http.post('http://localhost:3000/login',data)
   }
 
-  login(acno: any, pswd: any) {
-    let userDetails = this.userDetails;
-
-    if (acno in userDetails) {
-      if (pswd == userDetails[acno]['password']) {
-        this.currentUser = userDetails[acno]['username'];
-        this.currentAcno = acno
-        this.saveDetails()
-
-        return true;
-      } else {
-        alert('incorrect password');
-        return false;
-      }
-    } else {
-      alert('user doesnot exist');
-      return false;
+  // to get request headerwith tocken
+  getToken(){
+    // featch the tocken from local storage 
+    const token = JSON.parse(localStorage.getItem('token') || '')
+    // generate request header - httpHeader
+    let headers= new HttpHeaders()
+    // append tocken inside header
+    if(token){
+      headers = headers.append('x-access-token',token)
+      //Implement overloading
+      options.headers = headers
     }
+    return options
   }
 
   //deposit
   deposit(acno: any, pswd: any, amt: any) {
-    let userDetails = this.userDetails;
-    var amount = parseInt(amt);
-
-    if (acno in userDetails) {
-      if (pswd == userDetails[acno]['password']) {
-        userDetails[acno]['balance'] += amount;
-        userDetails[acno]['transaction'].push({
-          type: 'credit',
-          amount,
-          balance:userDetails[acno]['balance']
-        })
-        this.saveDetails()
-
-        console.log(userDetails);
-
-        return userDetails[acno]['balance'];
-      } else {
-        alert('In correct password');
-        return false;
-      }
-    } else {
-      alert('user does not exist');
-      return false;
-    }
+// req body
+const data ={
+  acno,
+  pswd,
+  amt
+}
+// deposit api asynchronous
+return this.http.post(
+  'http://localhost:3000/deposit',data,this.getToken())
+  
   }
 
   //withdraw
